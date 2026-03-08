@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jerry Research</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+  background:radial-gradient(circle at 20% 20%,#7b3f5c,#3b1f2c 60%,#12080d);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  color:white;
+}
+
+/* animated particle grid */
+body::before{
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background-image:radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size:35px 35px;
+  animation:gridMove 80s linear infinite;
+  opacity:0.35;
+}
+
+@keyframes gridMove{
+  from{transform:translate(0,0)}
+  to{transform:translate(-300px,-300px)}
+}
+
+.card{
+  width:390px;
+  padding:50px 38px;
+  border-radius:30px;
+  background:rgba(255,255,255,0.07);
+  backdrop-filter:blur(22px);
+  text-align:center;
+  box-shadow:0 40px 120px rgba(0,0,0,0.8);
+  border:1px solid rgba(255,255,255,0.12);
+  position:relative;
+}
+
+/* rotating halo ring */
+.card::before{
+  content:"";
+  position:absolute;
+  top:-3px;
+  left:-3px;
+  right:-3px;
+  bottom:-3px;
+  border-radius:32px;
+  background:linear-gradient(90deg,#ff7ac6,#a855f7,#7b3f5c,#ff7ac6);
+  background-size:300%;
+  z-index:-1;
+  filter:blur(14px);
+  animation:borderSpin 8s linear infinite;
+  opacity:.6;
+}
+
+@keyframes borderSpin{
+  0%{background-position:0%}
+  100%{background-position:300%}
+}
+
+.logo{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  margin-bottom:22px;
+  box-shadow:0 0 40px rgba(220,120,170,0.8);
+  animation:logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoPulse{
+  0%,100%{transform:scale(1);box-shadow:0 0 40px rgba(220,120,170,0.7)}
+  50%{transform:scale(1.05);box-shadow:0 0 80px rgba(255,160,210,1)}
+}
+
+h1{
+  font-family:'Orbitron',sans-serif;
+  font-weight:800;
+  font-size:28px;
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  font-size:13px;
+  opacity:.75;
+  margin-bottom:32px;
+}
+
+.link{
+  display:block;
+  text-decoration:none;
+  padding:16px;
+  margin:12px 0;
+  border-radius:16px;
+  background:linear-gradient(135deg,#7b3f5c,#b05a84);
+  color:white;
+  font-weight:500;
+  letter-spacing:.5px;
+  transition:all .25s ease;
+  box-shadow:0 12px 35px rgba(0,0,0,0.5);
+  position:relative;
+  overflow:hidden;
+}
+
+/* moving light sweep */
+.link::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
+  transition:.5s;
+}
+
+.link:hover::after{
+  left:100%;
+}
+
+.link:hover{
+  transform:translateY(-5px) scale(1.03);
+  box-shadow:0 20px 55px rgba(0,0,0,0.7);
+}
+
+/* special glowing vote button */
+.vote{
+  background:linear-gradient(135deg,#ff4ecb,#a855f7);
+  font-weight:600;
+  box-shadow:0 0 25px rgba(255,120,220,0.9);
+  animation:voteGlow 2s infinite alternate;
+}
+
+@keyframes voteGlow{
+  from{box-shadow:0 0 20px rgba(255,120,220,0.7)}
+  to{box-shadow:0 0 45px rgba(255,120,220,1)}
+}
+
+.footer{
+  margin-top:28px;
+  font-size:11px;
+  opacity:.55;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<img class="logo" src="jerry-logo.png" alt="Jerry Research Logo">
+
+<h1>JERRY RESEARCH</h1>
+<div class="subtitle">Bone Conduction Audio Innovation</div>
+
+<a class="link" href="#">📄 Research Paper</a>
+<a class="link" href="#">📘 Information Booklet</a>
+<a class="link vote" href="#">🏆 Vote For Us</a>
+
+<div class="footer">© Jerry Research</div>
+
+</div>
+
+</body>
+</html>
